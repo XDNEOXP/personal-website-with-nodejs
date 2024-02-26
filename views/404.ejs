@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <%- include('./layout/head') %>
+    </head>
+    <body>
+        <%- include('./layout/header') %>
+        <div class="container">
+            <div class="notfound">
+                <h1>404</h1>
+                <p><%= error %></p>
+                <a href="<%= returnLink %>">Back</a>
+            </div>
+        </div>
+        <%- include('./layout/footer') %>
+    </body>
+</html>

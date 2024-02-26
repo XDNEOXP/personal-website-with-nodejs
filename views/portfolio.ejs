@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <%- include('./layout/head') %>
+        <link rel="stylesheet" href="/assets/css/portfolio.css" />
+    </head>
+    <body>
+        <%- include('./layout/header') %>
+        <div class="container">
+            <ul class="projects">
+                <% projects.forEach((project) => { %>
+                <li class="project">
+                    <img
+                        class="project__img"
+                        src="/assets/img/profile.png"
+                        alt="project"
+                    />
+                    <h1 class="project__title"><%= project.name %></h1>
+                    <p class="project__description"><%= project.description.substr(0, 100) %> . . . . </p>
+                    <a class="project__link" href="/project/<%= project.id %>">View</a>
+                </li>
+                <% }) %>
+                <ul class="projects__pagination">
+                    <% pages = counts / 12 + (counts % 12 > 0 ? 1 : 0) %>
+                    <% for (let i = 1; i < pages; i++) { %>
+                        <li class="pagination__item"><a href="/portfolio/?page=<%= i %>"><%= i %></a></li>
+                    <% } %>
+                </ul>
+                <%- include('./layout/footer') %>
+            </ul>
+        </div>
+    </body>
+</html>

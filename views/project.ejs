@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/assets/css/portfolio.css" />
+        <%- include('./layout/head') %>
+    </head>
+    <body>
+        <div class="container">
+            <%- include('./layout/header') %>
+            <h1 class="project__title">
+                Project By: <a href="/user/<%= user.id %>"><%= user.name %></a>
+            </h1>
+            <div class="project">
+                <img
+                    class="project__img"
+                    src="/assets/img/profile.png"
+                    alt="project"
+                />
+                <h1 class="project__title"><%= project.name %></h1>
+                <p class="project__description">
+                    <%= project.description.substr(0, 100) %>
+                </p>
+                <a class="project__link" href="/project/<%= project.id %>"
+                    >View</a
+                >
+            </div>
+            <div class="project__pagination">
+                <% if(prevProjectEnabled){ %>
+                <a
+                    href="/project/<%= Number(project.id) - 1 %>"
+                    class="project__pagination__link"
+                    >Previous
+                </a>
+                <% } %>
+                <% if(nextProjectEnabled){ %>
+                <a
+                    href="/project/<%= Number(project.id) + 1 %>"
+                    class="project__pagination__link"
+                    >Next</a
+                >
+                <% } %>
+            </div>
+            <%- include('./layout/footer') %>
+        </div>
+    </body>
+</html>

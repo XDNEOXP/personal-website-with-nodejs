@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+    <%- include('layout/head') %>
+    <body>
+        <div class="container">
+            <%- include('layout/header') %> 
+                <div class="content">
+                    <% users.forEach((user) => { %>
+                        <div class="border m-5 p-5 rounded border-green-300">
+                            <p class="text-white text-xl">Name: <span class="text-gray-400"><%= user.name %></span></p>
+                            <p class="text-white text-xl">Email: <span class="text-gray-400"><%= user.email %></span></p>
+                            <p class="text-white text-xl">Age: <span class="text-gray-400"><%= user.age %></span></p>
+                        </div>
+                    <% }); %>
+                </div>
+            <%- include('layout/footer') %>
+        </div>
+    </body>
+</html>

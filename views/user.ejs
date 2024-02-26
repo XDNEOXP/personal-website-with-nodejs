@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <%- include('./layout/head') %>
+        <link rel="stylesheet" href="/assets/css/portfolio.css" />
+        <link rel="stylesheet" href="/assets/css/user.css">
+    </head>
+    <body>
+        <%- include('./layout/header') %>
+        <div class="container">
+            <div class="card">
+                <img src="/assets/img/profile.png" alt="">
+                <h3><%=  user.name %></h3>
+                <h3><%=  user.email %></h3>
+                <h3><%=  user.age %> Years Old</h3>
+            </div>
+            <div class="spliter">Projects</div>
+            <ul class="projects">
+                <% projects.forEach((project) => { %>
+                <li class="project">
+                    <img
+                        class="project__img"
+                        src="/assets/img/profile.png"
+                        alt="project"
+                    />
+                    <h1 class="project__title"><%= project.name %></h1>
+                    <p class="project__description"><%= project.description.substr(0, 100) %> . . . . </p>
+                    <a class="project__link" href="/project/<%= project.id %>">View</a>
+                </li>
+                <% }) %>
+                <%- include('./layout/footer') %>
+            </ul>
+        </div>
+    </body>
+</html>
